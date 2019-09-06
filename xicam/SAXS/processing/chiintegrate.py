@@ -56,6 +56,9 @@ class ChiIntegratePlugin(ProcessingPlugin):
         self.Ichi.value = np.sum(self.Ichi.value, axis=1)
         self.chi.value = chi
 
+    def getCategory() -> str:
+        return "Integrations"
+
 
 def nonesafe_flipud(data: np.ndarray):
     if data is None: return None

@@ -14,3 +14,11 @@ class SimulateCalibrant(ProcessingPlugin):
     def evaluate(self):
         self.calibrant.value.set_wavelength(self.ai.value.get_wavelength())
         self.data.value = self.calibrant.value.fake_calibration_image(self.ai.value, Imax=self.Imax.value)
+        d = []
+        for i in range(len(self.data.value[0])):
+            c = []
+            for j in range(len(self.data.value)-1, -1, -1):
+                c.append(self.data.value[j][i])
+            d.append(np.asarray(c))
+        d = np.asarray(d)
+        self.data.value = d

@@ -45,3 +45,6 @@ class PolygonMask(ProcessingPlugin):
             children = [instructions, clearmask, finishmask]
             self._param = parameterTypes.GroupParameter(name='Polygon Mask', children=children)
         return self._param
+
+    def getCategory() -> str:
+        return "Masks"

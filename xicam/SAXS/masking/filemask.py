@@ -25,3 +25,6 @@ class FileMask(ProcessingPlugin):
 
         if self.mask.value is None: self.mask.value = np.zeros(self.ai.value.detector.shape).astype(np.bool_)
         self.mask.value = np.logical_or(self.mask.value, mask)
+
+    def getCategory() -> str:
+        return "Masks"

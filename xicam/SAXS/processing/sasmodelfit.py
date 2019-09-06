@@ -95,3 +95,6 @@ class AstropyQSpectraFit(ProcessingPlugin):
         Iq = self.Iq.value[filter]
         self.fittedmodel.value = self.fitter.value(self.model.value, q, Iq)
         self.fittedprofile.value = self.fittedmodel.value(self.q.value)
+
+    def getCategory() -> str:
+        return "Fits"

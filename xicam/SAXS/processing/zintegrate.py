@@ -36,3 +36,6 @@ class ZIntegratePlugin(ProcessingPlugin):
         self.qz.value = self.ai.value.qFunction(np.arange(0, self.data.value.shape[0]),
                                                 np.array([centerx] * self.data.value.shape[0])) / 10
         self.qz.value[np.arange(0, self.data.value.shape[0]) < centerz] *= -1.
+
+    def getCategory() -> str:
+        return "Integrations"

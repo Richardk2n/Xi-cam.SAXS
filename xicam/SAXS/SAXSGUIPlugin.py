@@ -45,6 +45,7 @@ class SAXSPlugin(GUIPlugin):
         # Grab the calibration plugin
         self.calibrationsettings = pluginmanager.getPluginByName('xicam.SAXS.calibration',
                                                                  'SettingsPlugin').plugin_object
+        print(pluginmanager.getPluginByName('xicam.SAXS.calibration', 'SettingsPlugin').path)
 
         # Setup TabViews
         self.calibrationtabview = TabView(self.headermodel, widgetcls=SAXSCalibrationViewer,
@@ -155,7 +156,7 @@ class SAXSPlugin(GUIPlugin):
 
     def doSimulateWorkflow(self):
         # TEMPORARY HACK for demonstration
-        self.reducetabview.currentWidget().setTransform()
+        #self.reducetabview.currentWidget().setTransform()
 
         if not self.calibrationtabview.currentWidget(): return
         data = self.calibrationtabview.currentWidget().header.meta_array()[0]

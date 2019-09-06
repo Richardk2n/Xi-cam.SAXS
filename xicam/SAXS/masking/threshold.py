@@ -32,3 +32,6 @@ class ThresholdMaskPlugin(ProcessingPlugin):
         if self.mask.value is not None:
             mask = np.logical_or(mask, self.mask.value)  # .astype(np.int, copy=False)
         self.mask.value = mask
+
+    def getCategory() -> str:
+        return "Masks"

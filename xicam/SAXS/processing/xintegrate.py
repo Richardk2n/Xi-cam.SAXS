@@ -35,3 +35,6 @@ class XIntegratePlugin(ProcessingPlugin):
         self.qx.value = self.ai.value.qFunction(np.array([centerz] * self.data.value.shape[1]),
                                                 np.arange(0, self.data.value.shape[1])) / 10.
         self.qx.value[np.arange(0, self.data.value.shape[1]) < centerx] *= -1.
+
+    def getCategory() -> str:
+        return "Integrations"

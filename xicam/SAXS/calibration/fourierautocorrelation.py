@@ -21,6 +21,7 @@ class fourierAutocorrelation(ProcessingPlugin):
             signal.fftconvolve(np.ones_like(self.data.value), np.ones_like(self.data.value)))
 
         self.center.value = np.array(np.unravel_index(con.argmax(), con.shape)) / 2.
+        self.center.value[0] = len(data) - self.center.value[0]
         fit2dparams = self.ai.value.getFit2D()
         fit2dparams['centerX'] = self.center.value[1]
         fit2dparams['centerY'] = self.center.value[0]

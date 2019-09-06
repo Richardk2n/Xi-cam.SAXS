@@ -1,0 +1,9 @@
+[Core]
+Name = Linecut
+Module = linecut.py
+
+[Documentation]
+Author = Richard Kellnberger
+Version = 0.1.0
+Website = http://lotsofplugins.com
+Description = My first plugin

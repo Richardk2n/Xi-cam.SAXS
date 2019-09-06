@@ -71,3 +71,6 @@ class QBackgroundFit(ProcessingPlugin):
         self.backgroundprofile.value = self.backgroundmodel.value(self.q.value)
         self.rawIq.value = self.Iq.value.copy()
         self.Iq.value = self.Iq.value - self.backgroundprofile.value
+
+    def getCategory() -> str:
+        return "Fits"

@@ -12,3 +12,6 @@ class ZingerMaskPlugin(ProcessingPlugin):
     def evaluate(self):
         self.mask.value = np.logical_or(self.mask.value,
                                         astroscrappy.detect_cosmics(self.data.value, self.mask.value)[0])
+
+    def getCategory() -> str:
+        return "Masks"

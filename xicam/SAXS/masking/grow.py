@@ -13,3 +13,6 @@ class GrowMask(ProcessingPlugin):
                -self.size.value:self.size.value + 1]
         kernel = x ** 2 + y ** 2 <= self.size.value ** 2
         morphology.binary_dilation(self.mask.value, kernel, output=self.mask.value)  # write-back to mask
+
+    def getCategory() -> str:
+        return "Masks"

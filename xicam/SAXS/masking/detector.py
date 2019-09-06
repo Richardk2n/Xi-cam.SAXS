@@ -16,3 +16,6 @@ class DetectorMaskPlugin(ProcessingPlugin):
             mask = self.ai.value.detector.calc_mask()
             if mask is None: mask = np.zeros(self.ai.value.detector.shape)
             self.mask.value = np.logical_or(self.mask.value, mask)
+
+    def getCategory() -> str:
+        return "Masks"

@@ -57,6 +57,9 @@ class CakeIntegratePlugin(ProcessingPlugin):
         self.chi.value = chi
         self.q.value = q
 
+    def getCategory() -> str:
+        return "Integrations"
+
 
 def nonesafe_flipud(data: np.ndarray):
     if data is None: return None

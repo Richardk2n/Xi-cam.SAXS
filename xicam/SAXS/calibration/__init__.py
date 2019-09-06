@@ -61,9 +61,11 @@ class DeviceProfiles(ParameterSettingsPlugin):
         energy = SimpleParameter(name='Energy', type='float', value=10000, siPrefix=True, suffix='eV')
         wavelength = SimpleParameter(name='Wavelength', type='float', value=1.239842e-6 / 10000, siPrefix=True,
                                      suffix='m')
+        incidentAngle = SimpleParameter(name='Incident Angle', type='float', value=90, siPrefix=False, suffix=u'°', limits = (0, 90))
+        reflection = SimpleParameter(name='Reflection', type='int', value=0, siPrefix=False, limits = (0, 1), step = 1)
 
         icon = QIcon(str(path('icons/calibrate.png')))
-        super(DeviceProfiles, self).__init__(icon, "Device Profiles", [energy, wavelength], addText='New Device')
+        super(DeviceProfiles, self).__init__(icon, "Device Profiles", [energy, wavelength, incidentAngle, reflection], addText='New Device')
 
         self.sigTreeStateChanged.connect(self.simulateCalibrant)
         self.sigTreeStateChanged.connect(self.genAIs)
@@ -192,7 +194,7 @@ class DeviceProfiles(ParameterSettingsPlugin):
     def fromState(self, state):
         self.restoreState(state[0], addChildren=False, removeChildren=False)
         self.AIs = state[1]
-        for child in self.children()[2:]:
+        for child in self.children()[4:]: #4 == Amount of not device children. Here energy wavelength, incident angle and reflection
             child.remove()
         for name, ai in self.AIs.items():
             self.addDevice(name)

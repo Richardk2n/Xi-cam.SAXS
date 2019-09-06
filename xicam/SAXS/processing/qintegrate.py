@@ -52,4 +52,7 @@ class QIntegratePlugin(ProcessingPlugin):
                                                                 unit=self.unit.value,
                                                                 normalization_factor=self.normalization_factor.value)
 
+    def getCategory() -> str:
+        return "Integrations"
+
 
